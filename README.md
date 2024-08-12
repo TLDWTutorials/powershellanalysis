@@ -72,6 +72,31 @@ Write-Output "`nPress Enter to close..."
 [void][System.Console]::ReadLine()
 ```
 
+### Optional - If you want to list all of the youngest and oldest (not just the first case just I have above)
+```powershell
+# Find the maximum age (Oldest)
+$maxAge = ($data | Sort-Object -Property Age -Descending | Select-Object -First 1).Age
+
+# Filter and display all individuals with the maximum age
+$oldest = $data | Where-Object { $_.Age -eq $maxAge } | Select-Object Name, Age
+
+# Output the results for the oldest individuals
+Write-Output "Oldest Individuals:"
+$oldest | ForEach-Object { Write-Output "$($_.Name), Age: $($_.Age)" }
+
+Write-Output ""
+
+# Find the minimum age (Youngest)
+$minAge = ($data | Sort-Object -Property Age | Select-Object -First 1).Age
+
+# Filter and display all individuals with the minimum age
+$youngest = $data | Where-Object { $_.Age -eq $minAge } | Select-Object Name, Age
+
+# Output the results for the youngest individuals
+Write-Output "Youngest Individuals:"
+$youngest | ForEach-Object { Write-Output "$($_.Name), Age: $($_.Age)" }
+```
+
 ### Usage
 (1) Save the script in a .ps1 file format. <br>
 (2) Ensure the CSV file path is correct. <br>
