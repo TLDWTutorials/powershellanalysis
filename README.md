@@ -73,7 +73,7 @@ Write-Output "`nPress Enter to close..."
 ```
 
 ### Usage
-(1) Place the script in a .ps1 file. <br>
+(1) Save the script in a .ps1 file format. <br>
 (2) Ensure the CSV file path is correct. <br>
 (3) Run the script in PowerShell (if you made this with a basic text editor in Windows, right click on the .ps1 file and select "run with PowerShell". <br>
 (4) Review the output displayed in the console.
