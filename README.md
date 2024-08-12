@@ -72,7 +72,7 @@ Write-Output "`nPress Enter to close..."
 [void][System.Console]::ReadLine()
 ```
 
-#### Optional - If you want to list all of the youngest and oldest (not just the first case just I have above)
+#### Optional - If you want to list all of the youngest and oldest (not just the first case like I have above)
 ```powershell
 # Find the maximum age (Oldest)
 $maxAge = ($data | Sort-Object -Property Age -Descending | Select-Object -First 1).Age
