@@ -13,8 +13,26 @@ This script performs basic statistical analysis on a dataset stored in a CSV fil
 
 #### 1. Define the Path to the CSV File
 ```powershell
-# Define the path to the CSV file
+# Explanation: This line defines the file path to the CSV file that contains the dataset. The path is stored in the $csvFilePath variable.
 $csvFilePath = "D:\PowerShell\Analyze\people_dataset.csv"
 ```
 
-test
+#### 2. Import the CSV file
+```powershell
+# Explanation: This command imports the content of the CSV file into a variable named $data. The Import-Csv cmdlet reads the CSV file and converts each row into a PowerShell object.
+$data = Import-Csv -Path $csvFilePath
+```powershell
+
+#### 3. Calculate mean and standard deviation for age
+#Explanation: $ages: Extracts the age data from each record and converts it to an integer. $meanAge: Calculates the average (mean) age. $variance: Computes the variance, which measures how far the ages deviate from the mean. $stdDevAge: Calculates the standard deviation, providing insight into the spread of ages.
+```powershell
+$ages = $data | ForEach-Object { [int]$_."Age" }
+$meanAge = ($ages | Measure-Object -Average).Average
+$variance = ($ages | ForEach-Object { ($_ - $meanAge) * ($_ - $meanAge) } | Measure-Object -Sum).Sum / ($ages.Count - 1)
+$stdDevAge = [math]::Sqrt($variance)
+```powershell
+
+#### 2. Import the CSV file
+```powershell
+
+```powershell
