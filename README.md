@@ -1,5 +1,7 @@
 ## PowerShell Script for Analyzing a Dataset
 
+YouTube video overview: https://youtu.be/NP8CHEsdhIE
+
 ### Overview
 This script performs basic statistical analysis on a dataset stored in a CSV file. The analysis includes calculating the mean, standard deviation, and range of ages, as well as determining the distribution of race counts, and identifying the oldest and youngest individuals by name.
 
